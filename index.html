@@ -40,9 +40,9 @@
             let decimalOdds = parseFloat(document.getElementById("odds").value);
             let americanOdds = 0;
             if (decimalOdds < 2) {
-                americanOdds = -100 / (decimalOdds - 1)
+                americanOdds = Math.round(-100 / (decimalOdds - 1))
             } else {
-                americanOdds = 100 * (decimalOdds - 1)
+                americanOdds = Math.round(100 * (decimalOdds - 1))
             }
 
             document.getElementById("americanOdds").innerHTML = americanOdds;
