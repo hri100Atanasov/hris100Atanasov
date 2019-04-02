@@ -1,0 +1,76 @@
+
+<table border="solid">
+        <tr>
+            <th>Decimal Odds:</th>
+            <th>American Odds:</th>
+        </tr>
+        <tr>
+            <td>
+                <input type="text" id="odds" oninput="fillAmericanOdds()" />
+            </td>
+            <td>
+                <p id="americanOdds"></p>
+            </td>
+        </tr>
+        <tr>
+            <th>Probability %</th>
+            <th>Result</th>
+        </tr>
+        <tr>
+            <td>
+                    <input type="text" id="probability" />
+            </td>
+            <td>
+                <p id="result"></p>
+            </td>
+        </tr>
+    </table>
+    <button id="button" onclick="calculate()" value="Submit">Submit</button>
+
+    <script>
+    
+        function calculate() {
+            let odds = parseFloat(document.getElementById("odds").value);
+            let probability = parseFloat(document.getElementById("probability").value);
+            let result = odds * probability;
+            document.getElementById("result").innerHTML = result;
+        }
+        function fillAmericanOdds() {
+            let decimalOdds = parseFloat(document.getElementById("odds").value);
+            let americanOdds = 0;
+            if (decimalOdds < 2) {
+                americanOdds = -100 / (decimalOdds - 1)
+            } else {
+                americanOdds = 100 * (decimalOdds - 1)
+            }
+
+            document.getElementById("americanOdds").innerHTML = americanOdds;
+        }
+    </script>
+    <style>
+            html, body {
+              height: 100%;
+            }
+            #tableContainer-1 {
+              height: 100%;
+              width: 100%;
+              display: table;
+            }
+            #tableContainer-2 {
+              vertical-align: middle;
+              display: table-cell;
+              height: 100%;
+            }
+            #myTable {
+              margin: 0 auto;
+            }
+          </style>
+          <div id="tableContainer-1">
+            <div id="tableContainer-2">
+              <table id="myTable" border>
+                <tr><td>Name</td><td>J W BUSH</td></tr>
+                <tr><td>Proficiency</td><td>PHP</td></tr>
+                <tr><td>Company</td><td>BLAH BLAH</td></tr>
+              </table>
+            </div>
+          </div>
