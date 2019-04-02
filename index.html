@@ -32,7 +32,7 @@
         function calculate() {
             let odds = parseFloat(document.getElementById("odds").value);
             let probability = parseFloat(document.getElementById("probability").value);
-            let result = odds * probability;
+            let result = ((1/odds-probability)*-odds)*100;
             document.getElementById("result").innerHTML = result;
         }
         function fillAmericanOdds() {
