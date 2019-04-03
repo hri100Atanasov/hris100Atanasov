@@ -6,7 +6,7 @@
         </tr>
         <tr>
             <td>
-                <input type="text" id="odds" oninput="fillAmericanOdds()" />
+                <input type="text" id="odds" oninput="verifyOdds()" />
             </td>
             <td>
                 <p id="americanOdds"></p>
@@ -35,6 +35,15 @@
             let preResult = ((1/odds-probability)*(-1*odds))*100;
             let result = Math.round(preResult*100)/100+'%'
             document.getElementById("result").innerHTML = result;
+        }
+            function verifyOdds(){
+            let decimalOdds = parseFloat(document.getElementById("odds").value)
+            if(decimalOdds==1){
+                alert("1 is not a valid odd!")
+                document.getElementById("odds").value = ''
+            }else{
+                fillAmericanOdds()
+            }
         }
         function fillAmericanOdds() {
             let decimalOdds = parseFloat(document.getElementById("odds").value);
